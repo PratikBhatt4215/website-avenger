@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
-import ThemeToggle from './components/ThemeToggle';
 import './index.css';
 
 const Navigation = () => {
@@ -22,7 +21,6 @@ const Navigation = () => {
           <Link to="/" className="text-[var(--text-muted)] hover:text-green-400 font-bold transition-colors">HOME</Link>
           <Link to="/movies" className="text-[var(--text-muted)] hover:text-green-400 font-bold transition-colors">ARCHIVES</Link>
           <Link to="/contact" className="text-[var(--text-muted)] hover:text-green-400 font-bold transition-colors">CLASSIFIED</Link>
-          <ThemeToggle />
           {user ? (
             <div className="flex items-center gap-4">
               <span className="text-green-500 font-mono text-xs border border-green-500 px-2 py-1 rounded">

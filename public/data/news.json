@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "headline": "DOCTOR DOOM ISSUES ULTIMATUM",
+        "date": "2026-05-01",
+        "type": "URGENT",
+        "content": "Victor Von Doom has broadcast a message to all global leaders demanding immediate surrender of sovereign borders. The Avengers have been summoned to the UN.",
+        "image": "https://upload.wikimedia.org/wikipedia/en/2/25/Avengers_Doomsday_Logo.jpg",
+        "link": "https://www.google.com/search?q=Avengers+Doomsday+plot+leaks+Dr+Doom"
+    },
+    {
+        "id": 2,
+        "headline": "Battle of New York: Encampment?",
+        "date": "2026-04-29",
+        "type": "alert",
+        "content": "Stark Tower (now Avengers Tower) is being fortified. Reports confirm Thor and Captain Marvel have arrived on site. Is New York the first target?",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/The_Avengers_logo_2026.jpg/640px-The_Avengers_logo_2026.jpg",
+        "link": "https://www.google.com/search?q=Avengers+New+York+Battle+Doomsday"
+    },
+    {
+        "id": 3,
+        "headline": "Wakanda Pledges Support",
+        "date": "2026-04-28",
+        "type": "alliance",
+        "content": "Shuri and the Dora Milaje have been spotted mobilizing Vibranium air-ships towards Europe. A global alliance against Doom is forming.",
+        "image": "https://upload.wikimedia.org/wikipedia/en/3/3b/Black_Panther_Wakanda_Forever_poster.jpg",
+        "link": "https://www.google.com/search?q=Wakanda+role+in+Avengers+Doomsday"
+    },
+    {
+        "id": 4,
+        "headline": "Spider-Man: Missing in Action?",
+        "date": "2026-04-27",
+        "type": "hero",
+        "content": "With the threat of Doomsday approaching, the friendly neighborhood Spider-Man has not been seen for weeks. Sources say he may be off-world with Doctor Strange.",
+        "image": "https://upload.wikimedia.org/wikipedia/en/0/00/Spider-Man_No_Way_Home_poster.jpg",
+        "link": "https://www.google.com/search?q=Where+is+Spider-Man+Avengers+Doomsday"
+    },
+    {
+        "id": 5,
+        "headline": "Fantastic Four Arrival Confirmed",
+        "date": "2026-04-25",
+        "type": "cosmic",
+        "content": "Reed Richards and his team have reportedly made contact with S.H.I.E.L.D. Their knowledge of the Multiverse may be our only hope against Doom.",
+        "image": "https://upload.wikimedia.org/wikipedia/en/9/9b/Fantastic_Four_Step.jpg",
+        "link": "https://www.google.com/search?q=Fantastic+Four+in+Avengers+Doomsday"
+    },
+    {
+        "id": 6,
+        "headline": "Doombots Swarm Eastern Europe",
+        "date": "2026-04-22",
+        "type": "invasion",
+        "content": "Mechanical legions bearing the likeness of Doom have begun securing key infrastructure in Sokovia and neighboring regions.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Marvel%27s_The_Avengers_logo.svg",
+        "link": "https://www.google.com/search?q=Dr+Doom+Doombots+Avengers"
+    }
+]

@@ -10,7 +10,12 @@ export const AuthProvider = ({ children }) => {
         // Check local storage for existing session
         const storedUser = localStorage.getItem('avengers_user');
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
+            const parsedUser = JSON.parse(storedUser);
+            setUser(parsedUser);
+            // Optional: Speak on refresh/re-visit? 
+            // The user asked "when user logged in or come to website", so yes.
+            // We use a small timeout to ensure voices are loaded
+
         }
         setLoading(false);
     }, []);

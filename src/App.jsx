@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
+import Footer from './components/Footer';
 import './index.css';
 
 import { Menu, X } from 'lucide-react';
@@ -18,7 +19,7 @@ const Navigation = () => {
     <nav className="p-4 border-b border-green-900/30 bg-[var(--primary-color)]/95 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-xl md:text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-[var(--text-color)]">
-          AVENGERS<span className="text-red-600">.INITIATIVE</span>
+          AVENGERS<span className="text-red-600">.DIARIES</span>
         </Link>
 
         {/* Mobile Menu Button */}
@@ -78,7 +79,9 @@ const App = () => {
             <Route path="/movies" element={<Movies />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </AuthProvider>

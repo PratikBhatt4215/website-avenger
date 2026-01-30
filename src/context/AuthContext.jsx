@@ -16,7 +16,10 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async (email, name = '', isSignUp = false) => {
-        setLoading(true);
+        // We do NOT set global loading(true) here because it unmounts the App component
+        // causing the Login page (and its error state) to disappear/reset.
+        // The Login page handles its own UI loading state.
+
         try {
             // 1. Prepare data for Google Script
             const payload = {
@@ -44,16 +47,13 @@ export const AuthProvider = ({ children }) => {
                 };
                 setUser(user);
                 localStorage.setItem('avengers_user', JSON.stringify(user));
-                setLoading(false);
                 return { success: true };
             } else {
-                setLoading(false);
                 return { success: false, message: data.message || 'Authentication Failed' };
             }
 
         } catch (error) {
             console.error("Auth Error:", error);
-            setLoading(false);
             // Fallback for demo if network fails, or return error
             return { success: false, message: 'Network Error: Check Internet or Script setup.' };
         }

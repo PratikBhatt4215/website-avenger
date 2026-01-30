@@ -27,12 +27,12 @@ const Hero = () => {
     });
 
     return (
-        <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <div className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center">
             {/* Video Background Overlay */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-black/60 z-10"></div>
                 <iframe
-                    className="w-full h-full object-cover scale-150 pointer-events-none"
+                    className="w-full h-full object-cover scale-[3.5] md:scale-150 pointer-events-none"
                     src="https://www.youtube.com/embed/hA6hldpSTF8?autoplay=1&mute=1&controls=0&loop=1&playlist=hA6hldpSTF8&showinfo=0&modestbranding=1"
                     title="Avengers Doomsday Background"
                     frameBorder="0"

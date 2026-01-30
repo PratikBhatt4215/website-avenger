@@ -60,16 +60,17 @@ const NewsFeed = () => {
                     {/* Main Feed */}
                     <div className="lg:col-span-2 space-y-6">
                         <AnimatePresence mode='popLayout'>
-                            {displayNews.map((item) => (
+                            {/* Mobile: Show only 1 item. Desktop: Show all 4-6 items */}
+                            {displayNews.slice(0, window.innerWidth < 768 ? 2 : 6).map((item) => (
                                 <motion.div
                                     key={item.id}
                                     layout
                                     initial={{ opacity: 0, x: -50 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
-                                    className="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:border-green-500/50 transition-colors flex gap-6 group"
+                                    className="bg-slate-800/50 border border-slate-700 p-4 md:p-6 rounded-xl hover:border-green-500/50 transition-colors flex flex-col md:flex-row gap-4 md:gap-6 group"
                                 >
-                                    <div className="w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg">
+                                    <div className="w-full md:w-32 h-48 md:h-32 flex-shrink-0 overflow-hidden rounded-lg">
                                         <img src={item.image} alt={item.headline} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                     </div>
                                     <div className="flex-1">
@@ -79,7 +80,7 @@ const NewsFeed = () => {
                                             </span>
                                             <span className="text-gray-500 text-xs font-mono">{item.date}</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">{item.headline}</h3>
+                                        <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors leading-tight">{item.headline}</h3>
                                         <p className="text-gray-400 text-sm line-clamp-2 mb-3">{item.content}</p>
                                         <a
                                             href={item.link}

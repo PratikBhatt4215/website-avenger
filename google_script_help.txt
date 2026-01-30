@@ -1,0 +1,16 @@
+// 1. Go to extensions > Apps Script in your Google Sheet
+// 2. Paste this code
+// 3. Publish > Deploy as Web App > Who has access: "Anyone"
+
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var date = new Date();
+  
+  // Parse incoming data
+  var data = JSON.parse(e.postData.contents);
+  
+  // Append to sheet (Order: Date, Name, Email, Message)
+  sheet.appendRow([date, data.name, data.email, data.message]);
+  
+  return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
+}

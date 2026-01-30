@@ -11,7 +11,12 @@ const Contact = () => {
 
     // PLACEHOLDER: Replace this with the actual Google Web App URL after deployment
     // Example: https://script.google.com/macros/s/AKfycbx.../exec
-    const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE';
+    // ---------------------------------------------------------------------------
+    // CONFIGURATION: PASTE YOUR GOOGLE SCRIPT WEB APP URL BELOW
+    // ---------------------------------------------------------------------------
+    const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+    // Example: 'https://script.google.com/macros/s/AKfycbx.../exec'
+    // ---------------------------------------------------------------------------
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,7 +28,7 @@ const Contact = () => {
 
         // Since we don't have the actual script URL yet, we will simulate success 
         // or attempt to fetch if user provided one.
-        if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE') {
+        if (GOOGLE_SCRIPT_URL === 'PASTE_YOUR_WEB_APP_URL_HERE' || GOOGLE_SCRIPT_URL === '') {
             setTimeout(() => {
                 setStatus('Transmission Intercepted: Config Missing (Please set Script URL). Simulated Success.');
                 setFormData({ name: '', email: '', message: '' });
@@ -34,12 +39,12 @@ const Contact = () => {
         try {
             const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                // mode: 'no-cors' is often needed for Google Scripts due to CORS
-                mode: 'no-cors',
+                // Use text/plain to avoid CORS preflight options request which fails on GAS
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'text/plain',
                 },
-                body: JSON.stringify(formData),
+                // Add action: 'contact' so the script knows what to do
+                body: JSON.stringify({ ...formData, action: 'contact' }),
             });
 
             setStatus('Transmission Sent Successfully.');

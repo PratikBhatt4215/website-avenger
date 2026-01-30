@@ -15,11 +15,48 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    const login = (email) => {
-        // Simple simulation
-        const dummyUser = { email, name: 'S.H.I.E.L.D. Agent' };
-        setUser(dummyUser);
-        localStorage.setItem('avengers_user', JSON.stringify(dummyUser));
+    const login = async (email, name = '', isSignUp = false) => {
+        setLoading(true);
+        try {
+            // 1. Prepare data for Google Script
+            const payload = {
+                action: isSignUp ? 'signup' : 'login',
+                email: email,
+                name: name
+            };
+
+            // 2. Fetch from Backend
+            // Note: We use the URL from .env
+            const response = await fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                // We use 'text/plain' to avoid CORS preflight complex checks which Google Scripts hate
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+
+            // 3. Handle Script Response
+            if (data.success) {
+                const user = {
+                    email: email,
+                    name: isSignUp ? name : data.name // Use returned name on login
+                };
+                setUser(user);
+                localStorage.setItem('avengers_user', JSON.stringify(user));
+                setLoading(false);
+                return { success: true };
+            } else {
+                setLoading(false);
+                return { success: false, message: data.message || 'Authentication Failed' };
+            }
+
+        } catch (error) {
+            console.error("Auth Error:", error);
+            setLoading(false);
+            // Fallback for demo if network fails, or return error
+            return { success: false, message: 'Network Error: Check Internet or Script setup.' };
+        }
     };
 
     const logout = () => {

@@ -6,10 +6,15 @@ import Movies from './pages/Movies';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import Maintenance from './pages/Maintenance'; // Import Maintenance Page
 import './index.css';
 
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+
+// --- CONTROL FLAG ---
+const MAINTENANCE_MODE = true; // Set to true to lock the site
+// --------------------
 
 const Navigation = () => {
   const { user, logout } = useAuth();
@@ -69,6 +74,11 @@ const Navigation = () => {
 };
 
 const App = () => {
+  // If Maintenance Flag is ON, block the entire site
+  if (MAINTENANCE_MODE) {
+    return <Maintenance />;
+  }
+
   return (
     <AuthProvider>
       <Router>
@@ -78,7 +88,6 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<Movies />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/login" element={<Login />} />
           </Routes>
           <Footer />

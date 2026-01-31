@@ -57,7 +57,7 @@ const Login = () => {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 className="w-full bg-slate-800 border border-slate-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-green-500 transition-colors"
-                                placeholder="Pratik Unnati Kumar"
+                                placeholder="Pratik Kumar"
                                 required
                             />
                         </div>
